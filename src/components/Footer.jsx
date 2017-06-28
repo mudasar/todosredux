@@ -1,22 +1,22 @@
 import React, { Component, PropTypes } from 'react'
 
-class About extends Component {
+class Footer extends Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
-    
+
     render () {
         return (
-            <div>
-                About Us
-            </div>
+            <footer>
+                <h3>Footer</h3>
+            </footer>
         )
     }
 }
 
-About.propTypes = {
+Footer.propTypes = {
 
 }
 
-export default About
+export default Footer;
