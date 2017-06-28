@@ -12,6 +12,7 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "foundation-sites": "^6.4.0",
     "react-scripts": "1.0.7"
   },
   "scripts": {
