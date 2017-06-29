@@ -36,7 +36,22 @@ export const todoRecuder = (state = todoRecuderInitialState, action) => {
              return todos;
         case 'ADD_TODOS':
             return [...state,...action.todos];
+        case 'CLAER_STORE':
+            return [];
         default:
             return state
     }
 };
+
+const authInitialState = { uid: undefined};
+export const authReducer = (state = authInitialState, action) => {
+    
+    switch (action.type) {
+        case 'LOGIN':
+            return {...state, uid: action.uid};
+        case 'LOGOUT':
+            return {...state, uid:null};
+        default:
+            return state
+    }
+}

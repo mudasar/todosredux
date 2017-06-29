@@ -18,6 +18,11 @@ class Login extends Component {
                                     e.preventDefault();
                                     handleLoginClick();
                                 }}>Login with GitHub</button>
+                                <br/>
+                                 <button className="button alert" onClick={(e) => {
+                                    e.preventDefault();
+                                    handleLoginClick();
+                                }}>Login with Twitter</button>
                         </div>
                     </div>
                 </div>
@@ -35,6 +40,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         handleLoginClick: () => {
             dispatch(actions.startLogin());
+        },
+        handleTwitterLogin: () => {
+            dispatch(actions.startTwitterLogin());
         }
     }
 }

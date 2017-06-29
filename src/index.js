@@ -25,13 +25,17 @@ store.subscribe(()=>{
 });
 
 
-store.dispatch(actions.startAddTodos());
+
 
 firebase.auth().onAuthStateChanged( (user) => {
     if (user) {
-        history.push('/home');
+        console.log('do i fall here ');
+        //debugger;;
+       store.dispatch(actions.login(user.uid));
+       store.dispatch(actions.startAddTodos());
+       history.push('/home');
     }else{
-         history.push('/');
+       store.dispatch(actions.logout());
     }
 });
 

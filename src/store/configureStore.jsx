@@ -1,4 +1,4 @@
-import {searchTextReducer, showCompletedReducer, todoRecuder} from '../reducers';
+import {searchTextReducer, showCompletedReducer, todoRecuder, authReducer} from '../reducers';
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
 
 import { history } from './../hisotry';
@@ -11,6 +11,7 @@ export var configure = () => {
         searchText: searchTextReducer,
         showCompleted: showCompletedReducer,
         todos: todoRecuder,
+        auth: authReducer,
         router: routerReducer,
         });
 
