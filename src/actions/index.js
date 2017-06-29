@@ -125,7 +125,7 @@ export var startLogout = () => {
             .signOut()
             .then(() => {
                 console.log('Logged out');
-                dispatch(clearStore());
+                //dispatch(clearStore());
                 history.push('/');
             });
     };

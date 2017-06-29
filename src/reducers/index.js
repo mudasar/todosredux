@@ -36,7 +36,7 @@ export const todoRecuder = (state = todoRecuderInitialState, action) => {
              return todos;
         case 'ADD_TODOS':
             return [...state,...action.todos];
-        case 'CLAER_STORE':
+        case 'LOGOUT':
             return [];
         default:
             return state
