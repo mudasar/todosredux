@@ -34,19 +34,20 @@ class Todo extends Component {
                     e.preventDefault();
                     toggleTodo(id, !isCompleted);
             }}>
-                <div className=" large-1 columns text-center">
-                    <input
+                <div className="large-1 columns">
+                    
+                </div>
+                <div className="large-8 columns text-left">
+                    <p>
+ <input
                         type="checkbox"
                         onChange={() => {}}
                         checked={isCompleted}
                         ref="isCompleted"/>
-                </div>
-                <div className=" large-11 columns text-left">
-                    <p>
                         <span className={striked}>{text}</span>
-                        <br/>
-                        <span className="chkpanel">{renderDate()}</span>
                     </p>
+                        <span className="chkpanel">{renderDate()}</span>
+                    
                 </div>
             </div>
         )
