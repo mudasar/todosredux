@@ -1,5 +1,6 @@
 import moment from 'moment';
 import firebase, {firebaseRef, githubProvider} from './../firebase';
+import { history } from './../hisotry';
 
 export var setSearchText = (searchText) => {
     return {type: 'SET_SEARCH_TEXT', searchText};
@@ -76,6 +77,8 @@ export var startLogin = () => {
     return (dispatch, getStae) => {
         return firebase.auth().signInWithPopup(githubProvider).then( (result) => {
             console.log('Auth worked', result);
+            
+            
         }, (err)=>{
             console.log('Auth Fialed', err);
         });
@@ -84,6 +87,10 @@ export var startLogin = () => {
 
 export var startLogout = () => {
     return (dispatch, getStae) => {
-        return firebase.auth().signOut().then( () => {console.log('Logged out');});
+        return firebase.auth().signOut().then( () => {
+            console.log('Logged out');
+           
+        }
+        );
     };
 };

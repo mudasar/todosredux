@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import Home from './Home';
+import * as actions from '../actions';
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
     render () {
+        const { handleLogout } = this.props;
         return (
            <div className="top-bar">
                 <div className="top-bar-left">
                     <ul className="dropdown menu" data-dropdown-menu>
                         <li className="menu-text">React + Redux</li>
                         <li>
-                            <NavLink to="/" exact activeClassName="button">Home</NavLink>
+                            <NavLink to="/home" exact activeClassName="button">Home</NavLink>
                         </li>
                         <li>
                             <NavLink to="/todos" activeClassName="button">Todos</NavLink>
@@ -28,7 +35,7 @@ class Header extends Component {
                 <div className="top-bar-right">
                     <ul className="menu">
                         <li>
-                            <button className="button">Logout</button>
+                            <button className="button" onClick={(e) => {e.preventDefault(); handleLogout();} }>Logout</button>
                         </li>
                         <li>
                             <input type="search" placeholder="Search" /></li>
@@ -42,4 +49,17 @@ class Header extends Component {
     }
 }
 
-export default Header;
+
+const mapStateToProps = (state, ownProps) => {
+    return state;
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        handleLogout: () => {
+            dispatch(actions.startLogout());
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

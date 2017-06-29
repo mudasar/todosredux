@@ -1,6 +1,8 @@
 import React from 'react'
 import uuid from 'uuid';
 import moment from 'moment';
+import { withRouter } from 'react-router-dom';
+import firebase from './../../firebase';
 
 import TodoList from './TodoList';
 import AddTodo from './AddTodo';
@@ -11,7 +13,26 @@ import * as actions from '../../actions';
 class Todos extends React.Component {
     constructor(props) {
         super(props)   
+        
     }
+
+    componentWillMount() {
+        this.checkAuthentication(this.props);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.location !== this.props.location) {
+            this.checkAuthentication(nextProps);
+        }
+    }
+    
+    checkAuthentication(params) {
+        const { history } = params;
+        if (!firebase.auth().currentUser) {
+            history.replace({ pathname: '/' });
+        }
+    }
+    
 
     render() {
         return (
@@ -29,4 +50,5 @@ class Todos extends React.Component {
         )
     }
 }
-export default Todos;
+
+export default withRouter(Todos);
